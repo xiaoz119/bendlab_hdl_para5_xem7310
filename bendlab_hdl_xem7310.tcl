@@ -643,22 +643,22 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
 
 
   # Create ports
-  set bl_L0 [ create_bd_port -dir I -type intr bl_L0 ]
-  set iic_bendlab_L0_scl_io [ create_bd_port -dir IO -type data iic_bendlab_L0_scl_io ]
-  set iic_bendlab_L0_sda_io [ create_bd_port -dir IO iic_bendlab_L0_sda_io ]
+  set bl_R0 [ create_bd_port -dir I -type intr bl_R0 ]
+  set iic_bendlab_R0_scl_io [ create_bd_port -dir IO -type data iic_bendlab_R0_scl_io ]
+  set iic_bendlab_R0_sda_io [ create_bd_port -dir IO iic_bendlab_R0_sda_io ]
   set status_LEDs [ create_bd_port -dir O -from 7 -to 0 -type data status_LEDs ]
-  set bl_L1 [ create_bd_port -dir I -type intr bl_L1 ]
-  set bl_L2 [ create_bd_port -dir I -type intr bl_L2 ]
-  set bl_L3 [ create_bd_port -dir I -type intr bl_L3 ]
-  set bl_L4 [ create_bd_port -dir I -type intr bl_L4 ]
-  set iic_bendlab_L1_scl_io [ create_bd_port -dir IO -type data iic_bendlab_L1_scl_io ]
-  set iic_bendlab_L1_sda_io [ create_bd_port -dir IO iic_bendlab_L1_sda_io ]
-  set iic_bendlab_L2_scl_io [ create_bd_port -dir IO -type data iic_bendlab_L2_scl_io ]
-  set iic_bendlab_L2_sda_io [ create_bd_port -dir IO iic_bendlab_L2_sda_io ]
-  set iic_bendlab_L3_scl_io [ create_bd_port -dir IO -type data iic_bendlab_L3_scl_io ]
-  set iic_bendlab_L3_sda_io [ create_bd_port -dir IO iic_bendlab_L3_sda_io ]
-  set iic_bendlab_L4_scl_io [ create_bd_port -dir IO -type data iic_bendlab_L4_scl_io ]
-  set iic_bendlab_L4_sda_io [ create_bd_port -dir IO iic_bendlab_L4_sda_io ]
+  set bl_R1 [ create_bd_port -dir I -type intr bl_R1 ]
+  set bl_R2 [ create_bd_port -dir I -type intr bl_R2 ]
+  set bl_R3 [ create_bd_port -dir I -type intr bl_R3 ]
+  set bl_R4 [ create_bd_port -dir I -type intr bl_R4 ]
+  set iic_bendlab_R1_scl_io [ create_bd_port -dir IO -type data iic_bendlab_R1_scl_io ]
+  set iic_bendlab_R1_sda_io [ create_bd_port -dir IO iic_bendlab_R1_sda_io ]
+  set iic_bendlab_R2_scl_io [ create_bd_port -dir IO -type data iic_bendlab_R2_scl_io ]
+  set iic_bendlab_R2_sda_io [ create_bd_port -dir IO iic_bendlab_R2_sda_io ]
+  set iic_bendlab_R3_scl_io [ create_bd_port -dir IO -type data iic_bendlab_R3_scl_io ]
+  set iic_bendlab_R3_sda_io [ create_bd_port -dir IO iic_bendlab_R3_sda_io ]
+  set iic_bendlab_R4_scl_io [ create_bd_port -dir IO -type data iic_bendlab_R4_scl_io ]
+  set iic_bendlab_R4_sda_io [ create_bd_port -dir IO iic_bendlab_R4_sda_io ]
 
   # Create instance: microblaze_0, and set properties
   set microblaze_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:microblaze:11.0 microblaze_0 ]
@@ -803,27 +803,27 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
   connect_bd_intf_net -intf_net microblaze_0_ilmb_1 [get_bd_intf_pins microblaze_0/ILMB] [get_bd_intf_pins microblaze_0_local_memory/ILMB]
 
   # Create port connections
-  connect_bd_net -net Net [get_bd_ports iic_bendlab_L0_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_0/iic_bl_scl_io]
-  connect_bd_net -net Net1 [get_bd_ports iic_bendlab_L0_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_0/iic_bl_sda_io]
-  connect_bd_net -net Net2 [get_bd_ports iic_bendlab_L1_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_1/iic_bl_scl_io]
-  connect_bd_net -net Net3 [get_bd_ports iic_bendlab_L1_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_1/iic_bl_sda_io]
-  connect_bd_net -net Net4 [get_bd_ports iic_bendlab_L2_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_2/iic_bl_scl_io]
-  connect_bd_net -net Net5 [get_bd_ports iic_bendlab_L2_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_2/iic_bl_sda_io]
-  connect_bd_net -net Net6 [get_bd_ports iic_bendlab_L3_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_3/iic_bl_scl_io]
-  connect_bd_net -net Net7 [get_bd_ports iic_bendlab_L3_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_3/iic_bl_sda_io]
-  connect_bd_net -net Net8 [get_bd_ports iic_bendlab_L4_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_4/iic_bl_scl_io]
-  connect_bd_net -net Net9 [get_bd_ports iic_bendlab_L4_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_4/iic_bl_sda_io]
+  connect_bd_net -net Net [get_bd_ports iic_bendlab_R0_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_0/iic_bl_scl_io]
+  connect_bd_net -net Net1 [get_bd_ports iic_bendlab_R0_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_0/iic_bl_sda_io]
+  connect_bd_net -net Net2 [get_bd_ports iic_bendlab_R1_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_1/iic_bl_scl_io]
+  connect_bd_net -net Net3 [get_bd_ports iic_bendlab_R1_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_1/iic_bl_sda_io]
+  connect_bd_net -net Net4 [get_bd_ports iic_bendlab_R2_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_2/iic_bl_scl_io]
+  connect_bd_net -net Net5 [get_bd_ports iic_bendlab_R2_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_2/iic_bl_sda_io]
+  connect_bd_net -net Net6 [get_bd_ports iic_bendlab_R3_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_3/iic_bl_scl_io]
+  connect_bd_net -net Net7 [get_bd_ports iic_bendlab_R3_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_3/iic_bl_sda_io]
+  connect_bd_net -net Net8 [get_bd_ports iic_bendlab_R4_scl_io] [get_bd_pins axi_i2c_ctrl_bendlab_4/iic_bl_scl_io]
+  connect_bd_net -net Net9 [get_bd_ports iic_bendlab_R4_sda_io] [get_bd_pins axi_i2c_ctrl_bendlab_4/iic_bl_sda_io]
   connect_bd_net -net axi_i2c_ctrl_bendlab_0_bl_data_o [get_bd_pins axi_i2c_ctrl_bendlab_0/bl_data_o] [get_bd_pins axi_gpio_bl_0/gpio_io_i]
   connect_bd_net -net axi_i2c_ctrl_bendlab_0_led [get_bd_pins axi_i2c_ctrl_bendlab_0/led] [get_bd_ports status_LEDs]
   connect_bd_net -net axi_i2c_ctrl_bendlab_1_bl_data_o [get_bd_pins axi_i2c_ctrl_bendlab_1/bl_data_o] [get_bd_pins axi_gpio_bl_1/gpio_io_i]
   connect_bd_net -net axi_i2c_ctrl_bendlab_2_bl_data_o [get_bd_pins axi_i2c_ctrl_bendlab_2/bl_data_o] [get_bd_pins axi_gpio_bl_2/gpio_io_i]
   connect_bd_net -net axi_i2c_ctrl_bendlab_3_bl_data_o [get_bd_pins axi_i2c_ctrl_bendlab_3/bl_data_o] [get_bd_pins axi_gpio_bl_3/gpio_io_i]
   connect_bd_net -net axi_i2c_ctrl_bendlab_4_bl_data_o [get_bd_pins axi_i2c_ctrl_bendlab_4/bl_data_o] [get_bd_pins axi_gpio_bl_4/gpio_io_i]
-  connect_bd_net -net bl_L0_1 [get_bd_ports bl_L0] [get_bd_pins axi_i2c_ctrl_bendlab_0/intr_bl]
-  connect_bd_net -net bl_L1_1 [get_bd_ports bl_L1] [get_bd_pins axi_i2c_ctrl_bendlab_1/intr_bl]
-  connect_bd_net -net bl_L2_1 [get_bd_ports bl_L2] [get_bd_pins axi_i2c_ctrl_bendlab_2/intr_bl]
-  connect_bd_net -net bl_L3_1 [get_bd_ports bl_L3] [get_bd_pins axi_i2c_ctrl_bendlab_3/intr_bl]
-  connect_bd_net -net bl_L4_1 [get_bd_ports bl_L4] [get_bd_pins axi_i2c_ctrl_bendlab_4/intr_bl]
+  connect_bd_net -net bl_R0_1 [get_bd_ports bl_R0] [get_bd_pins axi_i2c_ctrl_bendlab_0/intr_bl]
+  connect_bd_net -net bl_R1_1 [get_bd_ports bl_R1] [get_bd_pins axi_i2c_ctrl_bendlab_1/intr_bl]
+  connect_bd_net -net bl_R2_1 [get_bd_ports bl_R2] [get_bd_pins axi_i2c_ctrl_bendlab_2/intr_bl]
+  connect_bd_net -net bl_R3_1 [get_bd_ports bl_R3] [get_bd_pins axi_i2c_ctrl_bendlab_3/intr_bl]
+  connect_bd_net -net bl_R4_1 [get_bd_ports bl_R4] [get_bd_pins axi_i2c_ctrl_bendlab_4/intr_bl]
   connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_1/locked] [get_bd_pins rst_clk_wiz_1_100M/dcm_locked]
   connect_bd_net -net mdm_1_debug_sys_rst [get_bd_pins mdm_1/Debug_SYS_Rst] [get_bd_pins rst_clk_wiz_1_100M/mb_debug_sys_rst] [get_bd_pins clk_wiz_1/reset]
   connect_bd_net -net microblaze_0_Clk [get_bd_pins clk_wiz_1/clk_out1] [get_bd_pins microblaze_0/Clk] [get_bd_pins microblaze_0_local_memory/LMB_Clk] [get_bd_pins mdm_1/S_AXI_ACLK] [get_bd_pins rst_clk_wiz_1_100M/slowest_sync_clk] [get_bd_pins microblaze_0_axi_periph/S00_ACLK] [get_bd_pins axi_gpio_bl_0/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/M00_ACLK] [get_bd_pins microblaze_0_axi_periph/ACLK] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/M01_ACLK] [get_bd_pins microblaze_0_axi_periph/M02_ACLK] [get_bd_pins microblaze_0_axi_periph/M03_ACLK] [get_bd_pins axi_i2c_ctrl_bendlab_0/clk] [get_bd_pins axi_gpio_bl_1/s_axi_aclk] [get_bd_pins axi_gpio_bl_2/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/M04_ACLK] [get_bd_pins axi_gpio_bl_3/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/M05_ACLK] [get_bd_pins axi_gpio_bl_4/s_axi_aclk] [get_bd_pins microblaze_0_axi_periph/M06_ACLK] [get_bd_pins axi_i2c_ctrl_bendlab_1/clk] [get_bd_pins axi_i2c_ctrl_bendlab_2/clk] [get_bd_pins axi_i2c_ctrl_bendlab_3/clk] [get_bd_pins axi_i2c_ctrl_bendlab_4/clk]
@@ -854,21 +854,21 @@ proc create_hier_cell_microblaze_0_local_memory { parentCell nameHier } {
 #  -string -flagsOSRD
 preplace port uart_rtl -pg 1 -lvl 7 -x 2220 -y 290 -defaultsOSRD
 preplace port fixed_200mhz -pg 1 -lvl 0 -x 0 -y 280 -defaultsOSRD
-preplace port port-id_bl_L0 -pg 1 -lvl 0 -x 0 -y 950 -defaultsOSRD
-preplace port port-id_iic_bendlab_L0_scl_io -pg 1 -lvl 7 -x 2220 -y 900 -defaultsOSRD
-preplace port port-id_iic_bendlab_L0_sda_io -pg 1 -lvl 7 -x 2220 -y 920 -defaultsOSRD
-preplace port port-id_bl_L1 -pg 1 -lvl 0 -x 0 -y 1110 -defaultsOSRD
-preplace port port-id_bl_L2 -pg 1 -lvl 0 -x 0 -y 1270 -defaultsOSRD
-preplace port port-id_bl_L3 -pg 1 -lvl 0 -x 0 -y 1430 -defaultsOSRD
-preplace port port-id_bl_L4 -pg 1 -lvl 0 -x 0 -y 1590 -defaultsOSRD
-preplace port port-id_iic_bendlab_L1_scl_io -pg 1 -lvl 7 -x 2220 -y 1060 -defaultsOSRD
-preplace port port-id_iic_bendlab_L1_sda_io -pg 1 -lvl 7 -x 2220 -y 1080 -defaultsOSRD
-preplace port port-id_iic_bendlab_L2_scl_io -pg 1 -lvl 7 -x 2220 -y 1220 -defaultsOSRD
-preplace port port-id_iic_bendlab_L2_sda_io -pg 1 -lvl 7 -x 2220 -y 1240 -defaultsOSRD
-preplace port port-id_iic_bendlab_L3_scl_io -pg 1 -lvl 7 -x 2220 -y 1380 -defaultsOSRD
-preplace port port-id_iic_bendlab_L3_sda_io -pg 1 -lvl 7 -x 2220 -y 1400 -defaultsOSRD
-preplace port port-id_iic_bendlab_L4_scl_io -pg 1 -lvl 7 -x 2220 -y 1540 -defaultsOSRD
-preplace port port-id_iic_bendlab_L4_sda_io -pg 1 -lvl 7 -x 2220 -y 1560 -defaultsOSRD
+preplace port port-id_bl_R0 -pg 1 -lvl 0 -x 0 -y 950 -defaultsOSRD
+preplace port port-id_iic_bendlab_R0_scl_io -pg 1 -lvl 7 -x 2220 -y 900 -defaultsOSRD
+preplace port port-id_iic_bendlab_R0_sda_io -pg 1 -lvl 7 -x 2220 -y 920 -defaultsOSRD
+preplace port port-id_bl_R1 -pg 1 -lvl 0 -x 0 -y 1110 -defaultsOSRD
+preplace port port-id_bl_R2 -pg 1 -lvl 0 -x 0 -y 1270 -defaultsOSRD
+preplace port port-id_bl_R3 -pg 1 -lvl 0 -x 0 -y 1430 -defaultsOSRD
+preplace port port-id_bl_R4 -pg 1 -lvl 0 -x 0 -y 1590 -defaultsOSRD
+preplace port port-id_iic_bendlab_R1_scl_io -pg 1 -lvl 7 -x 2220 -y 1060 -defaultsOSRD
+preplace port port-id_iic_bendlab_R1_sda_io -pg 1 -lvl 7 -x 2220 -y 1080 -defaultsOSRD
+preplace port port-id_iic_bendlab_R2_scl_io -pg 1 -lvl 7 -x 2220 -y 1220 -defaultsOSRD
+preplace port port-id_iic_bendlab_R2_sda_io -pg 1 -lvl 7 -x 2220 -y 1240 -defaultsOSRD
+preplace port port-id_iic_bendlab_R3_scl_io -pg 1 -lvl 7 -x 2220 -y 1380 -defaultsOSRD
+preplace port port-id_iic_bendlab_R3_sda_io -pg 1 -lvl 7 -x 2220 -y 1400 -defaultsOSRD
+preplace port port-id_iic_bendlab_R4_scl_io -pg 1 -lvl 7 -x 2220 -y 1540 -defaultsOSRD
+preplace port port-id_iic_bendlab_R4_sda_io -pg 1 -lvl 7 -x 2220 -y 1560 -defaultsOSRD
 preplace portBus status_LEDs -pg 1 -lvl 7 -x 2220 -y 940 -defaultsOSRD
 preplace inst microblaze_0 -pg 1 -lvl 4 -x 1200 -y 100 -defaultsOSRD
 preplace inst microblaze_0_local_memory -pg 1 -lvl 5 -x 1620 -y 110 -defaultsOSRD
@@ -895,16 +895,16 @@ preplace netloc rst_clk_wiz_1_100M_bus_struct_reset 1 2 3 590J 30 950J 190 1460
 preplace netloc rst_clk_wiz_1_100M_mb_reset 1 2 2 NJ 220 940
 preplace netloc rst_clk_wiz_1_100M_peripheral_aresetn 1 2 4 610 40 930J 210 1440 210 1850
 preplace netloc xlconstant_0_dout 1 1 1 250 180n
-preplace netloc bl_L0_1 1 0 6 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 1800J
+preplace netloc bl_R0_1 1 0 6 NJ 950 NJ 950 NJ 950 NJ 950 NJ 950 1800J
 preplace netloc rst_clk_wiz_1_100M_peripheral_reset 1 2 4 620J 230 960J 220 NJ 220 1790
 preplace netloc Net 1 6 1 2180J 900n
 preplace netloc Net1 1 6 1 2190J 920n
 preplace netloc axi_i2c_ctrl_bendlab_0_bl_data_o 1 6 1 2170 90n
 preplace netloc axi_i2c_ctrl_bendlab_0_led 1 6 1 2200J 940n
-preplace netloc bl_L1_1 1 0 6 NJ 1110 NJ 1110 NJ 1110 NJ 1110 NJ 1110 1770J
-preplace netloc bl_L2_1 1 0 6 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 1770J
-preplace netloc bl_L3_1 1 0 6 NJ 1430 NJ 1430 NJ 1430 NJ 1430 NJ 1430 1770J
-preplace netloc bl_L4_1 1 0 6 NJ 1590 NJ 1590 NJ 1590 NJ 1590 NJ 1590 1770J
+preplace netloc bl_R1_1 1 0 6 NJ 1110 NJ 1110 NJ 1110 NJ 1110 NJ 1110 1770J
+preplace netloc bl_R2_1 1 0 6 NJ 1270 NJ 1270 NJ 1270 NJ 1270 NJ 1270 1770J
+preplace netloc bl_R3_1 1 0 6 NJ 1430 NJ 1430 NJ 1430 NJ 1430 NJ 1430 1770J
+preplace netloc bl_R4_1 1 0 6 NJ 1590 NJ 1590 NJ 1590 NJ 1590 NJ 1590 1770J
 preplace netloc axi_i2c_ctrl_bendlab_1_bl_data_o 1 6 1 2160 450n
 preplace netloc axi_i2c_ctrl_bendlab_2_bl_data_o 1 6 1 2150 590n
 preplace netloc axi_i2c_ctrl_bendlab_3_bl_data_o 1 6 1 2140 730n
